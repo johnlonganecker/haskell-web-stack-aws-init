@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eux
+
 export PGPASSWORD="postgres"
 export PGUSER="postgres"
 export PGDB="haskell"
