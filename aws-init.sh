@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux
+set -eu
 
 export PGPASSWORD="postgres"
 export PGUSER="postgres"
@@ -37,15 +37,13 @@ tar xvf stack.tar.gz
 
 mv stack-2.1.3-linux-x86_64-static/ ~/stack/
 
-sudo stack upgrade
-
 npm install -g webpack-cli
 
 sudo yum install -y postgresql-server postgresql-contrib
 sudo postgresql-setup initdb
 
-cp postgresql.conf /var/lib/pgsql/data/postgresql.conf
-cp pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
+sudo cp postgresql.conf /var/lib/pgsql/data/postgresql.conf
+sudo cp pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
 
 sudo systemctl enable postgresql
 sudo systemctl restart postgresql
@@ -56,6 +54,9 @@ cd haskell-web-stack/
 psql -h localhost -U $PGUSER -c 'CREATE DATABASE haskell'
 psql -d $PGDB -h localhost -U $PGUSER -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 psql -d $PGDB -h localhost -U $PGUSER -W -f tables.sql
+
+rm -f node.tar.xz
+rm -f stack.tar.gz
 
 make build
 make run
