@@ -9,11 +9,11 @@ export PGDB="haskell"
 # files
 git clone https://gitlab.com/williamyaoh/haskell-web-stack.git
 
-cp aws-init/.pgpass ~/.pgpass
-cp aws-init/postgresql.conf /var/lib/pgsql/data/postgresql.conf
-cp aws-init/pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
-cp aws-init/server-configuration.cfg haskell-web-stack/server-configuration.cfg
-cp aws-init/.bash_profile ~/.bash_profile
+cp .pgpass ~/.pgpass
+cp postgresql.conf /var/lib/pgsql/data/postgresql.conf
+cp pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
+cp server-configuration.cfg haskell-web-stack/server-configuration.cfg
+cp .bash_profile ~/.bash_profile
 
 source $HOME/.bash_profile
 
