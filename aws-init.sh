@@ -57,7 +57,7 @@ cd haskell-web-stack/
 
 psql -h localhost -U $PGUSER -c 'CREATE DATABASE haskell'
 psql -d $PGDB -h localhost -U $PGUSER -c "ALTER USER postgres WITH PASSWORD 'postgres';"
-psql -d $PGDB -h localhost -U $PGUSER -W -f tables.sql
+psql -d $PGDB -h localhost -U $PGUSER -f tables.sql
 
 make build
 make run
