@@ -9,6 +9,7 @@ export PGDB="haskell"
 echo $PATH
 
 cp .pgpass ~/.pgpass
+chmod 600 ~/.pgpass
 cp .bashrc ~/.bashrc
 
 source ~/.bashrc
@@ -51,7 +52,7 @@ sudo systemctl restart postgresql
 cd ~
 git clone https://gitlab.com/williamyaoh/haskell-web-stack.git
 
-cp server-configuration.cfg haskell-web-stack/server-configuration.cfg
+cp haskell-web-stack-aws-init/server-configuration.cfg haskell-web-stack/server-configuration.cfg
 cd haskell-web-stack/
 
 psql -h localhost -U $PGUSER -c 'CREATE DATABASE haskell'
