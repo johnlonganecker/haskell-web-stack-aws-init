@@ -10,7 +10,7 @@ export PGDB="haskell"
 git clone https://gitlab.com/williamyaoh/haskell-web-stack.git
 
 cp .pgpass ~/.pgpass
-cp .bash_profile ~/.bash_profile
+cp .bashrc ~/.bashrc
 cp server-configuration.cfg haskell-web-stack/server-configuration.cfg
 
 source ~/.bashrc
