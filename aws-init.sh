@@ -6,12 +6,13 @@ export PGPASSWORD="postgres"
 export PGUSER="postgres"
 export PGDB="haskell"
 
+echo $PATH
+
 # files
 git clone https://gitlab.com/williamyaoh/haskell-web-stack.git
 
 cp .pgpass ~/.pgpass
 cp .bashrc ~/.bashrc
-cp server-configuration.cfg haskell-web-stack/server-configuration.cfg
 
 source ~/.bashrc
 
@@ -24,19 +25,19 @@ sudo yum install -y /usr/include/libpq-fe.h
 #sudo yum install -y gcc-c++ make
 sudo yum groupinstall -y 'Development Tools'
 
-sudo stack upgrade
-
 wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz -O node.tar.xz
 
 tar xvf node.tar.xz
 
-mv node-v12.13.1-linux-x64 node/
+mv node-v12.13.1-linux-x64 ~/node/
 
 wget https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-linux-x86_64-static.tar.gz -O stack.tar.gz
 
 tar xvf stack.tar.gz
 
-mv stack-2.1.3-linux-x86_64-static/ stack/
+mv stack-2.1.3-linux-x86_64-static/ ~/stack/
+
+sudo stack upgrade
 
 npm install -g webpack-cli
 
@@ -49,8 +50,8 @@ cp pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
 sudo systemctl enable postgresql
 sudo systemctl restart postgresql
 
+cp server-configuration.cfg haskell-web-stack/server-configuration.cfg
 cd haskell-web-stack/
-vi server-configuration.cfg
 
 psql -h localhost -U $PGUSER -c 'CREATE DATABASE haskell'
 psql -d $PGDB -h localhost -U $PGUSER -c "ALTER USER postgres WITH PASSWORD 'postgres';"
