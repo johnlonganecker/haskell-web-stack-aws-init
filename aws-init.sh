@@ -10,12 +10,10 @@ export PGDB="haskell"
 git clone https://gitlab.com/williamyaoh/haskell-web-stack.git
 
 cp .pgpass ~/.pgpass
-cp postgresql.conf /var/lib/pgsql/data/postgresql.conf
-cp pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
-cp server-configuration.cfg haskell-web-stack/server-configuration.cfg
 cp .bash_profile ~/.bash_profile
+cp server-configuration.cfg haskell-web-stack/server-configuration.cfg
 
-source $HOME/.bash_profile
+source ~/.bashrc
 
 sudo yum -y update
 curl -sSL https://s3.amazonaws.com/download.fpcomplete.com/centos/7/fpco.repo | sudo tee /etc/yum.repos.d/fpco.repo
@@ -44,6 +42,9 @@ npm install -g webpack-cli
 
 sudo yum install -y postgresql-server postgresql-contrib
 sudo postgresql-setup initdb
+
+cp postgresql.conf /var/lib/pgsql/data/postgresql.conf
+cp pg_hba.conf /var/lib/pgsql/data/pg_hba.conf
 
 sudo systemctl enable postgresql
 sudo systemctl restart postgresql
