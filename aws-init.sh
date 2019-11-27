@@ -20,7 +20,7 @@ curl -sSL https://s3.amazonaws.com/download.fpcomplete.com/centos/7/fpco.repo | 
 sudo yum install -y /usr/include/libpq-fe.h
 #sudo yum install -y postgresql-devel
 
-#sudo yum install -y gcc-c++ make
+sudo yum install -y gcc-c++ make
 sudo yum groupinstall -y 'Development Tools'
 
 wget https://nodejs.org/dist/v12.13.1/node-v12.13.1-linux-x64.tar.xz -O node.tar.xz
@@ -30,12 +30,12 @@ rm -f node.tar.xz
 
 mv node-v12.13.1-linux-x64 ~/node/
 
-wget https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-linux-x86_64-static.tar.gz -O stack.tar.gz
+wget https://github.com/commercialhaskell/stack/releases/download/v1.9.3/stack-1.9.3-linux-x86_64-static.tar.gz -O stack.tar.gz
 
 tar xvf stack.tar.gz
 rm -f stack.tar.gz
 
-mv stack-2.1.3-linux-x86_64-static/ ~/stack/
+mv stack-1.9.3-linux-x86_64-static/ ~/stack/
 
 npm install -g webpack webpack-cli
 
