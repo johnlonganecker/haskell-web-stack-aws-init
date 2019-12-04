@@ -54,7 +54,12 @@ cd ~
 git clone https://gitlab.com/williamyaoh/haskell-web-stack.git
 
 cp haskell-web-stack-aws-init/server-configuration.cfg haskell-web-stack/server-configuration.cfg
-cd haskell-web-stack/
+
+cd ~/haskell-web-stack/client
+
+npm install
+
+cd ~/haskell-web-stack
 
 psql -h localhost -U $PGUSER -c 'CREATE DATABASE haskell'
 psql -d $PGDB -h localhost -U $PGUSER -c "ALTER USER postgres WITH PASSWORD 'postgres';"
