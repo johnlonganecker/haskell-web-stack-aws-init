@@ -2,12 +2,14 @@
 base environment to do haskell tutorial https://gitlab.com/williamyaoh/haskell-web-stack
 
 # setup and run the example haskell stack
+I picked this ami `Amazon Linux 2 AMI 2.0.20191116.0 x86_64 HVM gp2` when launching the instance
+
 spin up a t2.small (or similar instance type), a t2.micro only has 1GB of memory and that doesn't seem to be enough to run everything.
 
 ```
-ssh user@aws-instance-ip
+ssh ec2-user@aws-instance-ip
 
-# install git
+sudo yum install git
 
 git clone https://github.com/johnlonganecker/haskell-web-stack-aws-init.git
 
